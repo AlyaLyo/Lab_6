@@ -13,11 +13,12 @@ public class CollectionStorage {
 
     }
 
-    synchronized public static CollectionStorage getInstance() {
-        if (instance == null) {
-            instance = new CollectionStorage();
-        }
-        return instance;
+    private static class Holder {
+        public  static final CollectionStorage instance = new CollectionStorage();
+    }
+
+    public static CollectionStorage getInstance() {
+        return Holder.instance;
     }
 
     public LinkedList<City> getCollection() {
