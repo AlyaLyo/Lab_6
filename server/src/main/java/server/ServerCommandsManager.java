@@ -1,6 +1,7 @@
 package server;
 
 import City.City;
+import City.CollectionStorage;
 import Commands.Commands;
 import Commands.Information;
 import Commands.Arguments;
@@ -27,7 +28,8 @@ public class ServerCommandsManager {
     public Commands commandConstructor (String commandName, Arguments commandArguments, Information information, Printable printable) throws Exception {
         List<Object> arguments = new ArrayList<>();
         if (information.getIsCity()) {
-            arguments.add(cities);
+            //arguments.add(cities);
+            arguments.add(CollectionStorage.getInstance().getCollection());
         }
         if (information.getIsPrintable()) {
             arguments.add(printable);
